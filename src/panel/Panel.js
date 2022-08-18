@@ -40,6 +40,7 @@ function Panel() {
             {
               panels.map((p, i) => (
                 <PanelButton
+                  key={i}
                   label={p.label}
                   icon={p.icon}
                   onClick={() => togglePanel(i)}

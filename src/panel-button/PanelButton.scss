@@ -27,9 +27,11 @@
     border-radius: 0.5rem 0.5rem 0 0;
   }
 
-  &:not([disabled]):hover {
-    .PanelButton-icon::before {
-      background: $panelButtonHoverBackground;
+  @media (hover: hover) {
+    &:not([disabled]):hover {
+      .PanelButton-icon::before {
+        background: $panelButtonHoverBackground;
+      }
     }
   }
 
@@ -40,8 +42,10 @@
 
   &.PanelButton__checked {
     background: $tabContentBackground;
-    &:hover {
-      background: $tabContentBackground;
+    @media (hover: hover) {
+      &:hover {
+        background: $tabContentBackground;
+      }
     }
   }
 }
@@ -128,9 +132,11 @@
 }
 
 @media screen and (max-width: $mWindowWidth) {
-  .PanelButton:hover {
-    .PanelButton-hint {
-      display: flex;
+  @media (hover: hover) {
+    .PanelButton:hover {
+      .PanelButton-hint {
+        display: flex;
+      }
     }
   }
 }
