@@ -1,0 +1,134 @@
+@import "../variables.scss";
+
+.PanelButton {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: $panelWidthMid;
+  max-width: $panelWidthMid;
+  min-width: $panelWidthMid;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: $panelButtonColor;
+  font-size: inherit;
+  cursor: pointer;
+  border-radius: 0.5rem 0 0 0.5rem;
+  transition: all $transitionSpeed;
+  user-select: none;
+
+  @media screen and (max-width: $mWindowWidth) {
+    width: $panelButtonWidth;
+    max-width: $panelButtonWidth;
+    min-width: $panelButtonWidth;
+  }
+
+  @media screen and (max-width: $xsWindowWidth) {
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+
+  &:not([disabled]):hover {
+    .PanelButton-icon::before {
+      background: $panelButtonHoverBackground;
+    }
+  }
+
+  &[disabled] {
+    pointer-events: none;
+    background: $panelButtonDisabledBackground !important;
+  }
+
+  &.PanelButton__checked {
+    background: $tabContentBackground;
+    &:hover {
+      background: $tabContentBackground;
+    }
+  }
+}
+
+@keyframes yanking {
+  from {
+    padding: 1.2rem;
+  }
+
+  25% {
+    padding: 1rem;
+  }
+
+  to {
+    padding: 1.2rem;
+  }
+}
+
+.PanelButton-icon {
+  width: $panelButtonWidth;
+  max-width: $panelButtonWidth;
+  min-width: $panelButtonWidth;
+  height: $panelButtonHeight;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.2rem;
+  overflow: hidden;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0.7rem;
+    background: $panelButtonBackground;
+    border-radius: 0.8rem;
+  }
+
+  svg,
+  img {
+    filter: drop-shadow(0 0 0.9em rgba(255, 255, 255, 0.5))
+      drop-shadow(0 0 0.5em white) drop-shadow(0 0 1px white);
+  }
+}
+
+.PanelButton__checked .PanelButton-icon {
+  animation-duration: $transitionSpeed;
+  animation-name: yanking;
+}
+
+.PanelButton-label {
+  padding-left: 0.1rem;
+  text-align: left;
+  flex: 1;
+  user-select: none;
+  @media screen and (max-width: $mWindowWidth) {
+    display: none;
+  }
+  transition: all $transitionSpeed;
+}
+.Panel__opened .PanelButton-label {
+  opacity: 0;
+}
+
+.PanelButton-hint {
+  display: none;
+  position: absolute;
+  right: calc(100% + 1.2rem);
+  background: $panelHintBackground;
+  border-radius: 4px;
+  padding: 1rem 1.25rem;
+  width: 12rem;
+  align-items: center;
+  &:before {
+    position: absolute;
+    left: 100%;
+    top: calc(50% - 1rem);
+    content: '';
+    border: 1rem solid transparent;
+    border-left: 1rem solid $panelHintBackground;
+  }
+}
+
+@media screen and (max-width: $mWindowWidth) {
+  .PanelButton:hover {
+    .PanelButton-hint {
+      display: flex;
+    }
+  }
+}

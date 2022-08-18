@@ -1,0 +1,33 @@
+$contentWidth: 56rem; // Ширина основного контента
+$contentPadding: 2rem; // Поля
+$contentPaddedWidth: $contentWidth + $contentPadding * 2; // Полная ширина контента с полями
+
+$panelButtonWidth: 3.5rem; // Кнопка на панели
+$panelButtonHeight: $panelButtonWidth;
+$panelWidthMin: $panelButtonWidth; // Ширина закрытой панели без подсказок
+$panelWidthMid: 13rem; // Ширина закрытой панели с подсказками
+$panelWidthMax: 30rem; // Ширина открытой панели
+$spaceForOpenPanel: $panelWidthMax - $panelWidthMid;
+$panelContentWidth: $panelWidthMax - $panelButtonWidth; // Ширина контента в открытой панели
+
+// Ширина экрана, когда вмещается контент и открытая панель
+$lWindowWidth: $contentPaddedWidth + $panelWidthMax * 2;
+
+// Ширина экрана, когда вмещается контент и закрытая панель с подсказками (открытая будет перекрывать контент)
+$mWindowWidth: $contentPaddedWidth + $panelWidthMid;
+
+// Ширина экрана, когда вмещается контент и закрытая панель без подсказок
+$sWindowWidth: $contentPaddedWidth + $panelWidthMin;
+
+// Ширина узкого экрана, когда панель сверху
+$xsWindowWidth: $panelWidthMax + $contentPadding;
+
+$panelButtonColor: #737373;
+$panelButtonBackground: #ffffff42;
+$panelButtonHoverBackground: #ffffff;
+$panelButtonDisabledBackground: #dbd9d9;
+$panelHintBackground: #efefef;
+
+$tabContentBackground: #ffffff;
+
+$transitionSpeed: 0.2s;

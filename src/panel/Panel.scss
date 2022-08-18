@@ -1,0 +1,134 @@
+@import "../variables.scss";
+
+.Panel-root {
+  display: flex;
+  transition: all $transitionSpeed;
+
+  height: calc(100vh - 3rem);
+  position: sticky;
+  top: 3rem;
+  z-index: 100;
+
+  @media screen and (max-width: $xsWindowWidth) {
+    flex-direction: column;
+    height: auto;
+  }
+
+  &.Panel__opened {
+    margin-left: -$spaceForOpenPanel;
+    @media screen and (max-width: $lWindowWidth) {
+      z-index: 201;
+      margin-left: -$spaceForOpenPanel;
+    }
+    @media screen and (max-width: $mWindowWidth) {
+      margin-left: -$panelContentWidth;
+    }
+    @media screen and (max-width: $xsWindowWidth) {
+      margin-left: 0;
+    }
+  }
+}
+
+
+.Panel-buttons {
+  background-color: #efefef;
+
+  /* if backdrop support: very transparent and blurred */
+  @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
+    background: #ebebebc7;
+    backdrop-filter: blur(20px);
+    border: 1px solid #ffffff;
+    outline: 1px solid #cccccc7a;
+  }
+
+  width: $panelWidthMid;
+  transition: all $transitionSpeed;
+  border-width: 0 0 0 1px;
+  @media screen and (max-width: $mWindowWidth) {
+    //480
+    width: $panelButtonWidth;
+  }
+  @media screen and (max-width: $xsWindowWidth) {
+    width: 100%;
+  }
+}
+.Panel__opened .Panel-buttons {
+  width: $panelButtonWidth;
+  @media screen and (max-width: $xsWindowWidth) {
+    width: 100%;
+  }
+}
+
+.Panel-buttons-wrapper {
+  position: sticky;
+  top: 3.3rem;
+  @media screen and (max-width: $xsWindowWidth) {
+    display: flex;
+    flex-direction: row;
+    // overflow-x: scroll;
+  }
+}
+
+.Panel-body {
+  display: block;
+  background: $tabContentBackground;
+  position: relative;
+}
+.Panel-body-wrapper {
+  height: 100%;
+  position: sticky;
+  overflow: hidden;
+  top: 3.3rem;
+  transition: all $transitionSpeed;
+  width: 0;
+  min-width: 0;
+  max-width: 0;
+  @media screen and (max-width: $xsWindowWidth) {
+    transition: none;
+    overflow-x: auto;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.Panel__opened .Panel-body-wrapper {
+  width: $panelContentWidth;
+  min-width: $panelContentWidth;
+  max-width: $panelContentWidth;
+  @media screen and (max-width: $xsWindowWidth) {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+.Panel-tab-content {
+  width: $panelContentWidth;
+  min-width: $panelContentWidth;
+  max-width: $panelContentWidth;
+  padding: 1rem 1rem 4rem;
+  overflow: hidden;
+  height: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  @media screen and (max-width: $xsWindowWidth) {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+  }
+}
+
+.Panel-shadow {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  display: none;
+  @media screen and (max-width: $lWindowWidth) {
+    &.Panel-shadow__opened {
+      display: block;
+    }
+  }
+}
