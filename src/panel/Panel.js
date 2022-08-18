@@ -4,13 +4,14 @@ import chat from './chat.svg'
 import eye from './eye.svg'
 import PanelButton from '../panel-button/PanelButton';
 import Chat from "../chat/Chat"
-import Tools from '../tools/Tools';
+import ToolsPanel from '../tools-panel/ToolsPanel';
+import ViewPanel from '../view-panel/ViewPanel';
 
 const panels = [
   {
     icon: eye,
-    label: 'Просмотр чего-нибудь как-нибудь чего-нибудь как-нибудь',
-    component: Tools,
+    label: 'Просмотр чего-нибудь как-нибудь',
+    component: ViewPanel,
   },
   {
     icon: chat,
@@ -20,7 +21,7 @@ const panels = [
   {
     icon: eye,
     label: 'Настройки',
-    component: Tools,
+    component: ToolsPanel,
   },
 ]
 

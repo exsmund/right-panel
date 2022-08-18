@@ -94,6 +94,8 @@
 
 .PanelButton-label {
   padding-left: 0.1rem;
+  width: $panelLabelWidth;
+  min-width: $panelLabelWidth;
   text-align: left;
   flex: 1;
   user-select: none;

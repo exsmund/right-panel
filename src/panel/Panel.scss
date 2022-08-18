@@ -4,7 +4,7 @@
   display: flex;
   transition: all $transitionSpeed;
 
-  height: calc(100vh - 3rem);
+  height: calc(100vh - $headerHeight);
   position: sticky;
   top: 3rem;
   z-index: 100;
@@ -16,6 +16,10 @@
 
   &.Panel__opened {
     margin-left: -$spaceForOpenPanel;
+    @media screen and (max-width: $xlWindowWidth) {
+      z-index: 201;
+      margin-left: 0;
+    }
     @media screen and (max-width: $lWindowWidth) {
       z-index: 201;
       margin-left: -$spaceForOpenPanel;
@@ -31,25 +35,28 @@
 
 
 .Panel-buttons {
+  width: $panelWidthMid;
+  transition: all $transitionSpeed;
+  border-width: 0 0 0 1px;
+  border-color: #fff;
+  border-style: solid;
+  box-sizing: content-box;
+  outline: 1px solid #cccccc7a;
   background-color: #efefef;
 
   /* if backdrop support: very transparent and blurred */
   @supports ((-webkit-backdrop-filter: none) or (backdrop-filter: none)) {
     background: #ebebebc7;
     backdrop-filter: blur(20px);
-    border: 1px solid #ffffff;
-    outline: 1px solid #cccccc7a;
   }
 
-  width: $panelWidthMid;
-  transition: all $transitionSpeed;
-  border-width: 0 0 0 1px;
   @media screen and (max-width: $mWindowWidth) {
     //480
     width: $panelButtonWidth;
   }
   @media screen and (max-width: $xsWindowWidth) {
     width: 100%;
+    border-width: 0;
   }
 }
 .Panel__opened .Panel-buttons {
@@ -61,7 +68,7 @@
 
 .Panel-buttons-wrapper {
   position: sticky;
-  top: 3.3rem;
+  top: $headerHeight + 0.3rem;
   @media screen and (max-width: $xsWindowWidth) {
     display: flex;
     flex-direction: row;
@@ -78,7 +85,7 @@
   height: 100%;
   position: sticky;
   overflow: hidden;
-  top: 3.3rem;
+  top: $headerHeight + 0.3rem;
   transition: all $transitionSpeed;
   width: 0;
   min-width: 0;

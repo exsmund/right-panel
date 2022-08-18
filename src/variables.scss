@@ -1,17 +1,25 @@
+$fontSize: 16px;
+
+$headerHeight: 3rem;
+
 $contentWidth: 56rem; // Ширина основного контента
 $contentPadding: 2rem; // Поля
 $contentPaddedWidth: $contentWidth + $contentPadding * 2; // Полная ширина контента с полями
 
 $panelButtonWidth: 3.5rem; // Кнопка на панели
 $panelButtonHeight: $panelButtonWidth;
+$panelLabelWidth: 9.5rem; // Ширина подсказки
 $panelWidthMin: $panelButtonWidth; // Ширина закрытой панели без подсказок
-$panelWidthMid: 13rem; // Ширина закрытой панели с подсказками
+$panelWidthMid: $panelButtonWidth + $panelLabelWidth; // Ширина закрытой панели с подсказками
 $panelWidthMax: 30rem; // Ширина открытой панели
-$spaceForOpenPanel: $panelWidthMax - $panelWidthMid;
+$spaceForOpenPanel: $panelWidthMax - $panelWidthMid; // На сколько увеличивается панель при открытии
 $panelContentWidth: $panelWidthMax - $panelButtonWidth; // Ширина контента в открытой панели
 
 // Ширина экрана, когда вмещается контент и открытая панель
-$lWindowWidth: $contentPaddedWidth + $panelWidthMax * 2;
+$xlWindowWidth: $contentPaddedWidth + $spaceForOpenPanel + $panelWidthMax;
+
+// Ширина экрана, когда вмещается контент и открытая панель, но контент приходтся сдигать влево
+$lWindowWidth: $contentPaddedWidth + $panelWidthMax;
 
 // Ширина экрана, когда вмещается контент и закрытая панель с подсказками (открытая будет перекрывать контент)
 $mWindowWidth: $contentPaddedWidth + $panelWidthMid;

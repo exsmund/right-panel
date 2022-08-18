@@ -5,49 +5,49 @@ import './Chat.scss';
 const initMessages = [
   {
     me: false,
-    avatar: '/ava1.jpg',
+    avatar: '/right-panel/ava1.jpg',
     name: 'Exsmund',
     message: 'Hi!',
     date: '11:55',
   },
   {
     me: true,
-    avatar: '/ava1.jpg',
+    avatar: '/right-panel/ava1.jpg',
     name: 'Evgenii',
     message: 'Hi!',
     date: '11:56',
   },
   {
     me: false,
-    avatar: '/ava1.jpg',
+    avatar: '/right-panel/ava1.jpg',
     name: 'Exsmund',
     message: 'Hi!',
     date: '11:57',
   },
   {
     me: false,
-    avatar: '/ava1.jpg',
+    avatar: '/right-panel/ava1.jpg',
     name: 'Exsmund',
     message: 'Hi!',
     date: '11:57',
   },
   {
     me: false,
-    avatar: '/ava1.jpg',
+    avatar: '/right-panel/ava1.jpg',
     name: 'Exsmund',
     message: 'Hi!',
     date: '11:57',
   },
   {
     me: false,
-    avatar: '/ava1.jpg',
+    avatar: '/right-panel/ava1.jpg',
     name: 'Exsmund',
     message: 'Hi!',
     date: '11:57',
   },
   {
     me: false,
-    avatar: '/ava1.jpg',
+    avatar: '/right-panel/ava1.jpg',
     name: 'Exsmund',
     message: 'Hi!',
     date: '11:57',
@@ -62,7 +62,7 @@ function Chat() {
     e.preventDefault();
     messages.push({
       me: true,
-      avatar: '/ava1.jpg',
+      avatar: '/right-panel/ava1.jpg',
       name: 'Exsmund',
       message: inputRef.current.value,
       date: '11:57',
@@ -73,9 +73,7 @@ function Chat() {
   }
   return (
     <div className="Chat-root">
-      <div className="Chat-title">
-        Чат
-      </div>
+      <h2 className="Chat-title">Чат</h2>
       <div className="Chat-messages">
         {messages.map((m) => (
           <ChatMessage message={m} />
